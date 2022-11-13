@@ -1,4 +1,4 @@
-import pandas as pd
+import json
 from utils import *
 import plotly.express as px
 import streamlit as st
@@ -7,17 +7,15 @@ st.set_page_config(page_title="Quadfecta Dashboard",
 	page_icon=":whale:",
 	layout="wide")
 
+constants = Constants
+config = loadConfig(constants.configPath)
 
-
-df = pd.read_excel("Quadfect_Tag_Filter_Test.xlsx",
-	engine="openpyxl")
-
+df = loadData(config["sourceFilePath"])
+topLevelFilters = config["topLevelFilters"]
 uiFriendlyColNames = formatColumnNames(df.columns.values)
+
+
 st.sidebar.header("Please Filter Here:")
-
-
-topLevelFilters = ["Sector", "Climate/Energy Provision", "Primary Technology Tag", 
-"Policy Tag", "Innovation Stage", "Bill Name", "Agency Name"]
 
 
 uniquevalues = df[~df["Sector"].isnull()]["Sector"].unique()

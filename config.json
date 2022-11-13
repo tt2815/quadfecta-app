@@ -1,0 +1,11 @@
+{
+	"topLevelFilters": [
+		"Sector", 
+		"Climate/Energy Provision", 
+		"Primary Technology Tag", 
+		"Policy Tag", 
+		"Innovation Stage", 
+		"Bill Name", 
+		"Agency Name"],
+	"sourceFilePath": "Quadfect_Tag_Filter_Test.xlsx"
+}
